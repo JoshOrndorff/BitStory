@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <title>Bit Story Hasher</title>
+    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="sha256.js"></script>
+    <link type="text/css" rel="stylesheet" href="index.css"></link>
+  </head>
+
+  <body>
+    <div>
+      <p>Parent Hash:</p>
+      <input type="text" id="parent" />
+    </div>
+
+    <div>
+      <p>New Word:</p>
+      <input type="text" id="word" />
+    </div>
+
+    <div>
+      <p>Nonce:</p>
+      <input type="number" id="nonce" value/>
+    </div>
+
+
+    <button id="increment">Increment</button>
+    <button id="random">Random</button>
+
+    <div id="hash"></div>
+
+  </body>
+</html>
