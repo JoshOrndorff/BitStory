@@ -6,54 +6,78 @@ window.addEventListener("DOMContentLoaded", () => {
   var parentBox    = document.getElementById("parent")
   var wordBox      = document.getElementById("word")
   var nonceBox     = document.getElementById("nonce")
+  var autoButton   = document.getElementById("auto")
   var incButton    = document.getElementById("increment")
+  var decButton    = document.getElementById("decrement")
   var randomButton = document.getElementById("random")
   var hashDiv      = document.getElementById("hash")
 
   //TODO set default values
 
+  // Update the hash whenever the text changes
+  parentBox.addEventListener("input", updateHash)
+  wordBox  .addEventListener("input", updateHash)
+  nonceBox .addEventListener("change", updateHash)
+
   // Handle clicking the increment button
-  incButton.addEventListener("click", () => {
+  incButton.addEventListener("click", () => {changeBy( 1);updateHash()})
+  decButton.addEventListener("click", () => {changeBy(-1);updateHash()})
+  autoButton.addEventListener("click", () => {
+    var hash = "33"
+    console.log("here")
+    while(hash.slice(0, 2) !== "00") {
+      console.log("there")
+      var nonce = parseInt(nonceBox.value, 10)
+      changeBy(1)
 
-    // Increment the nonce
-    var nonce = parseInt(nonceBox.value, 10)
-    nonce++
-    nonceBox.value = nonce
-
-    // Update the hash
-    updateHash(nonce)
+      hash = getHash()
+    }
+    updateHash()
   })
+
+  /**
+   * Get the hash and update the DOM
+   */
+  function updateHash(){
+    hashDiv.innerHTML = getHash()
+  }
+
+  /**
+   * Change the nonce in the DOM by n
+   * @param n The amount to change by
+   */
+  function changeBy(n){
+    var nonce = parseInt(nonceBox.value, 10)
+    nonce += n
+    nonceBox.value = nonce
+  }
 
   // Handle clicking the random button
   randomButton.addEventListener("click", () => {
 
     // Generate the random 32-bit nonce
-    var tempNonce = new Uint32Array(1)
-    window.crypto.getRandomValues(tempNonce)
-    var nonce = tempNonce[0]
-    nonceBox.value = nonce
+    var nonce = new Uint32Array(1)
+    window.crypto.getRandomValues(nonce)
+    nonceBox.value = nonce[0]
 
-    // Update the hash
-    updateHash(nonce)
+    updateHash()
   })
 
   /**
-   * Calculate the sha256 hash of the parameters,a nd display the first 8 hexadigits
-   * in the DOM
-   * @param parent The first 8 hexadigits of the parent block's hash
-   * @param word The new word you are adding to the story (no laeding or trailing spaces)
-   * @param nonce An unsigned integer in decimal form
+   * Calculate the sha256 hash of the parameters, and return the first
+   * 8 hexadigits as a string
+   * @return The computed has value
    */
-  function updateHash(nonce) {
-    console.log("update hash")
-    // Read in the other values
+  function getHash() {
+    // Read in the values
+    var nonce = parseInt(nonceBox.value, 10)
     var parent = parentBox.value
     var word = wordBox.value
 
     var concat = parent + word + nonce
     var hash = sha256(concat).slice(0, 8)
 
-    hashDiv.innerHTML = hash
+    return hash
   }
 
 })
