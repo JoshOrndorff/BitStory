@@ -17,16 +17,14 @@ window.addEventListener("DOMContentLoaded", () => {
   // Update the hash whenever the text changes
   parentBox.addEventListener("input", updateHash)
   wordBox  .addEventListener("input", updateHash)
-  nonceBox .addEventListener("change", updateHash)
+  nonceBox .addEventListener("input", updateHash)
 
   // Handle clicking the increment button
   incButton.addEventListener("click", () => {changeBy( 1);updateHash()})
   decButton.addEventListener("click", () => {changeBy(-1);updateHash()})
   autoButton.addEventListener("click", () => {
     var hash = "33"
-    console.log("here")
     while(hash.slice(0, 2) !== "00") {
-      console.log("there")
       var nonce = parseInt(nonceBox.value, 10)
       changeBy(1)
 
