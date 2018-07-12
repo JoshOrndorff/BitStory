@@ -1,3 +1,7 @@
 body {
   max-width: 100%;
 }
+
+#auto {
+  display: none;
+}
