@@ -12,13 +12,17 @@ window.addEventListener("DOMContentLoaded", () => {
   var randomButton = document.getElementById("random")
   var hashDiv      = document.getElementById("hash")
 
+  //TODO var difficulty = 2
+
   // Populate default values if no values are entered or left over
   if (parentBox.value === "" &&
-      wordBox.value   === "" &&
-      nonceBox.value  === "") {
+      wordBox.value   === "") {
 
         wordBox.value = "BitStory"
-        nonceBox.value = "0"
+  }
+
+  if (nonceBox.value === ""){
+    nonceBox.value = "0"
   }
 
   // Update the hash whenever the text changes
@@ -33,10 +37,12 @@ window.addEventListener("DOMContentLoaded", () => {
   // Auto-mine when the secret button is clicked
   autoButton.addEventListener("click", () => {
     var hash = "33"
-    while(hash.slice(0, 2) !== "00") {
+    var oldHash = ""
+    while(hash !== oldHash && hash.slice(0, 2) !== "00") {
       var nonce = parseInt(nonceBox.value, 10)
       changeBy(1)
 
+      oldHash = hash
       hash = getHash()
     }
     updateHash()
@@ -55,6 +61,7 @@ window.addEventListener("DOMContentLoaded", () => {
     hashDiv.innerHTML = getHash()
   }
 
+  //TODO Why is this a function?
   /**
    * Change the nonce in the DOM by n
    * @param n The amount to change by
@@ -86,6 +93,12 @@ window.addEventListener("DOMContentLoaded", () => {
     var nonce = parseInt(nonceBox.value, 10)
     var parent = parentBox.value
     var word = wordBox.value
+
+    // Validate nonce
+    //TODO Where should validation happen and what should result when it fails.
+    if (isNaN(nonce)) {
+      nonce = 0
+    }
 
     var concat = parent + word + nonce
     var hash = sha256(concat).slice(0, 8)
