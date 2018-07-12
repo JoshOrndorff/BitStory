@@ -35,8 +35,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
   /**
    * Get the hash and update the DOM
+   * Also checks for the secret keyword
    */
   function updateHash(){
+    if (parentBox.value === "auto-mine") {
+      autoButton.style.display = "inline"
+    }
     hashDiv.innerHTML = getHash()
   }
 
