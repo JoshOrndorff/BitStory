@@ -12,16 +12,25 @@ window.addEventListener("DOMContentLoaded", () => {
   var randomButton = document.getElementById("random")
   var hashDiv      = document.getElementById("hash")
 
-  //TODO set default values
+  // Populate default values if no values are entered or left over
+  if (parentBox.value === "" &&
+      wordBox.value   === "" &&
+      nonceBox.value  === "") {
+
+        wordBox.value = "BitStory"
+        nonceBox.value = "0"
+  }
 
   // Update the hash whenever the text changes
   parentBox.addEventListener("input", updateHash)
   wordBox  .addEventListener("input", updateHash)
   nonceBox .addEventListener("input", updateHash)
 
-  // Handle clicking the increment button
+  // Handle clicking the increment buttons
   incButton.addEventListener("click", () => {changeBy( 1);updateHash()})
   decButton.addEventListener("click", () => {changeBy(-1);updateHash()})
+
+  // Auto-mine when the secret button is clicked
   autoButton.addEventListener("click", () => {
     var hash = "33"
     while(hash.slice(0, 2) !== "00") {
@@ -32,6 +41,8 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     updateHash()
   })
+
+
 
   /**
    * Get the hash and update the DOM
