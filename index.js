@@ -12,8 +12,6 @@ window.addEventListener("DOMContentLoaded", () => {
   var randomButton = document.getElementById("random")
   var hashDiv      = document.getElementById("hash")
 
-  //TODO var difficulty = 2
-
   // Populate default values if no values are entered or left over
   if (parentBox.value === "" &&
       wordBox.value   === "") {
@@ -36,9 +34,13 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // Auto-mine when the secret button is clicked
   autoButton.addEventListener("click", () => {
-    var hash = "33"
-    var oldHash = ""
-    while(hash !== oldHash && hash.slice(0, 2) !== "00") {
+
+    // Variable difficulty for auto-mine
+    var diff = 3
+
+    var hash = ""
+    var oldHash
+    while(hash !== oldHash && hash.slice(0, diff) !== "0".repeat(diff)) {
       var nonce = parseInt(nonceBox.value, 10)
       changeBy(1)
 
