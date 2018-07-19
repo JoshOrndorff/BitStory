@@ -1,7 +1,46 @@
 body {
-  max-width: 100%;
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
 }
+
+div {
+  border: solid 1px black;
+  border-radius: 5px;
+  margin-top: 4px;
+}
+
+.label {
+  margin-bottom: 0;
+}
+
+/****** Input Div *******/
+
+#inputs {
+  display: flex;
+  flex-direction: row;
+}
+
+input {
+  width: 96%;
+}
+
+/****** Buttons Div *******/
+
+#buttons {
+
+}
+
+/****** Auto Hash Div *******/
 
 #auto {
   display: none;
 }
+
+#auto-button {
+  width: 100%;
+}
+
+/****** Hash Div *******/

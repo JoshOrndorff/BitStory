@@ -9,27 +9,28 @@
   </head>
 
   <body>
-    <div>
-      <p>Parent Hash:</p>
+    <div id="input">
+      <p class="label">Parent Hash:</p>
       <input type="text" id="parent" />
-    </div>
 
-    <div>
-      <p>New Word:</p>
+      <p class="label">New Word:</p>
       <input type="text" id="word" />
-    </div>
 
-    <div>
-      <p>Nonce:</p>
+      <p class="label">Nonce:</p>
       <input type="number" id="nonce" value/>
     </div>
 
-    <button id="auto">Auto</button>
-    <button id="decrement">Decrement</button>
-    <button id="increment">Increment</button>
-    <button id="random">Random</button>
+    <div id="buttons">
+      <button id="decrement">Decrement</button>
+      <button id="increment">Increment</button>
+      <button id="random">Random</button>
+    </div>
 
-    <div id="hash"></div>
+    <div id="auto">
+      <button id="auto-button">Auto Mine</button>
+    </div>
+
+    <div id="hash">&nbsp;</div>
 
   </body>
 </html>

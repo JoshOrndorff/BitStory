@@ -6,10 +6,11 @@ window.addEventListener("DOMContentLoaded", () => {
   var parentBox    = document.getElementById("parent")
   var wordBox      = document.getElementById("word")
   var nonceBox     = document.getElementById("nonce")
-  var autoButton   = document.getElementById("auto")
+  var autoButton   = document.getElementById("auto-button")
   var incButton    = document.getElementById("increment")
   var decButton    = document.getElementById("decrement")
   var randomButton = document.getElementById("random")
+  var autoDiv      = document.getElementById("auto")
   var hashDiv      = document.getElementById("hash")
 
   // Populate default values if no values are entered or left over
@@ -58,7 +59,7 @@ window.addEventListener("DOMContentLoaded", () => {
    */
   function updateHash(){
     if (parentBox.value === "auto-mine") {
-      autoButton.style.display = "inline"
+      autoDiv.style.display = "inline"
     }
     hashDiv.innerHTML = getHash()
   }
