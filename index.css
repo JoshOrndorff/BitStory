@@ -34,6 +34,9 @@ input {
 }
 
 /****** Auto Hash Div *******/
+#difficulty {
+  width: 60%;
+}
 
 #auto {
   display: none;

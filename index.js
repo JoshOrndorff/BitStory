@@ -6,11 +6,15 @@ window.addEventListener("DOMContentLoaded", () => {
   var parentBox    = document.getElementById("parent")
   var wordBox      = document.getElementById("word")
   var nonceBox     = document.getElementById("nonce")
-  var autoButton   = document.getElementById("auto-button")
+
   var incButton    = document.getElementById("increment")
   var decButton    = document.getElementById("decrement")
   var randomButton = document.getElementById("random")
+
   var autoDiv      = document.getElementById("auto")
+  var autoButton   = document.getElementById("auto-button")
+  var diffBox     = document.getElementById("difficulty")
+
   var hashDiv      = document.getElementById("hash")
 
   // Populate default values if no values are entered or left over
@@ -42,7 +46,7 @@ window.addEventListener("DOMContentLoaded", () => {
    */
   function autoMine() {
     // Variable difficulty for auto-mine
-    var diff = 3
+    var diff = parseInt(diffBox.value, 10)
 
     var parent = getParent()
     var word = getWord()
