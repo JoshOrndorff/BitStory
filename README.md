@@ -1,8 +1,8 @@
 # BitStory
 
-Bitstory is a game that demonstrates proof of work consensus. Players compete for the right to add the next word to a communally written story by hashing blocks.
+Bitstory is a game that demonstrates proof of work consensus. Players compete for the right to add the next word to a communally written story by hashing blocks. To play you'll need the [BitStory Hasher](https://joshorndorff.github.io/BitStory) and a whiteboard.
 
-Use the hasher as [https://joshorndorff.github.io/BitStory](https://joshorndorff.github.io/BitStory)
+![An example game](example.jpg)
 
 ## Authors
 The game was designed, written, and tested by Joshy Orndorff and Isaac Defrain
