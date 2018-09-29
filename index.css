@@ -1,49 +1,22 @@
-body {
-  width: 100%;
-  max-width: 300px;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
+
+.center {
+  text-align: center;
 }
 
-div {
-  border: solid 1px black;
-  border-radius: 5px;
-  margin-top: 4px;
+.margin-top {
+  margin-top: 50px;
 }
 
-.label {
-  margin-bottom: 0;
+.margin-bottom {
+  margin-bottom: 25px;
 }
 
-/****** Input Div *******/
-
-#inputs {
-  display: flex;
-  flex-direction: row;
-}
-
-input {
-  width: 96%;
-}
-
-/****** Buttons Div *******/
-
-#buttons {
-
-}
-
-/****** Auto Hash Div *******/
-#difficulty {
-  width: 60%;
-}
-
-#auto {
-  display: none;
-}
-
-#auto-button {
-  width: 100%;
+.alert-success {
+  margin-top: 25px;
+  line-height: 4px;
 }
 
 /****** Hash Div *******/
+#auto {
+  display: none;
+}
