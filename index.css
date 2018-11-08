@@ -17,6 +17,11 @@
 }
 
 /****** Hash Div *******/
+#hash {
+  font-family: monospace;
+}
+
+/****** Auto Mine ******/
 #auto {
   display: none;
 }

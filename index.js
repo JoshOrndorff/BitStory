@@ -3,30 +3,32 @@
 window.addEventListener("DOMContentLoaded", () => {
 
   // References to relevant DOM elements
-  var parentBox    = document.getElementById("parent")
-  var wordBox      = document.getElementById("word")
-  var nonceBox     = document.getElementById("nonce")
+  var parentBox     = document.getElementById("parent")
+  var wordBox       = document.getElementById("word")
+  var nonceBox      = document.getElementById("nonce")
 
-  var incButton    = document.getElementById("increment")
-  var decButton    = document.getElementById("decrement")
-  var randomButton = document.getElementById("random")
+  var incButton     = document.getElementById("increment")
+  var decButton     = document.getElementById("decrement")
+  var randomButton  = document.getElementById("random")
 
-  var autoDiv      = document.getElementById("auto")
-  var autoButton   = document.getElementById("auto-button")
-  var diffBox     = document.getElementById("difficulty")
+  var autoDiv       = document.getElementById("auto")
+  var autoButton    = document.getElementById("auto-button")
+  var diffBox       = document.getElementById("difficulty")
 
-  var hashDiv      = document.getElementById("hash")
+  var hashDiv       = document.getElementById("hash")
+
+  var nextButton = document.getElementById("publish")
 
   // Populate default values if no values are entered or left over
-  if (parentBox.value === "" &&
-      wordBox.value   === "") {
-
-        wordBox.value = "BitStory"
+  if (parentBox.value === "" && wordBox.value   === "") {
+    wordBox.value = "BitStory"
   }
 
   if (nonceBox.value === ""){
     nonceBox.value = "0"
   }
+
+  hashFromDOM();
 
   // Update the hash whenever the text changes
   parentBox.addEventListener("input", hashFromDOM)
@@ -38,11 +40,23 @@ window.addEventListener("DOMContentLoaded", () => {
   decButton.addEventListener("click", () => {changeBy(-1)})
   randomButton.addEventListener("click", genRandom)
   autoButton.addEventListener("click", autoMine)
+  nextButton.addEventListener("click", nextBlock)
 
 
 
   /**
-   * Automatically mines until a block with 3 leading 0's is found
+   * Resets the hasher to build on the existing block
+   */
+  function nextBlock() {
+    parentBox.value = hashDiv.innerHTML
+    wordBox.focus()
+    wordBox.select()
+  }
+
+
+
+  /**
+   * Automatically mines until a block with appropriate difficulty
    */
   function autoMine() {
     // Variable difficulty for auto-mine
