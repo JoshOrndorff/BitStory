@@ -20,17 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Event Handlers
   publishButton.addEventListener('click', publishBlockHandler);
-  //TODO get blocks over the network
+  const socket = io(); // default: connect to host serving page
+  socket.on('gossip-block', addBlockToChain);
 
   // Global block store and DOT store
   const blocks = {};
   const dotLines = [];
-
-
-  /**
-   * Receives a block from the network and adds it to the blockchain
-   */
-  //TODO
 
 
 
@@ -47,7 +42,12 @@ document.addEventListener('DOMContentLoaded', () => {
       hash:   hashDiv.innerHTML,
     }
 
-    //TODO Send it out over the network
+    // Send it out over the network
+    // As a _courtesy_ we won't send duplicate blocks over the network. This is _not_ a valid dos-prevention technique.
+    if (blocks.hasOwnProperty(block.hash)){
+      return;
+    }
+    socket.emit('publish-block', block);
 
     // Add it to our own local graph
     addBlockToChain(block);
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * @param block The block that is being added
    */
   function addBlockToChain(block) {
-    // If it's not actually a new block, don't bother re-drawing
+    // If it's not actually a new block, don't re-add.
     if (blocks.hasOwnProperty(block.hash)){
       return;
     }

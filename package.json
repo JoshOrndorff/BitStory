@@ -1,0 +1,30 @@
+{
+  "name": "bitstory",
+  "version": "0.0.1",
+  "description": "Understand blockchain consensus by playing games.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoshOrndorff/BitStory.git"
+  },
+  "keywords": [
+    "blockchain",
+    "consensus",
+    "bitcoin",
+    "PoW",
+    "proof of work"
+  ],
+  "author": "Joshy Orndorff",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/JoshOrndorff/BitStory/issues"
+  },
+  "homepage": "https://github.com/JoshOrndorff/BitStory#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "socket.io": "^2.1.1"
+  }
+}
