@@ -25,8 +25,7 @@ io.on('connection', (socket) => {
     console.log("received a new block");
 
     // Broadcast it to everyone (including original creator)
-    //TODO might be able to not send back to sender with socket.broadcast.emit??
-    io.emit('gossip-block', b);
+    socket.broadcast.emit('gossip-block', b);
   });
 });
 
