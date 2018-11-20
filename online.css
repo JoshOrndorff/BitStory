@@ -1,0 +1,41 @@
+/****** Split window in half *******/
+#main {
+  display: flex;
+}
+
+#hasher {
+  flex: 1;
+}
+
+#graph {
+  flex: 1;
+  padding-top: 5em; /* hack to not be hidden behind header */
+}
+
+/****** Came from bootstrap dude *******/
+.center {
+  text-align: center;
+}
+
+.margin-top {
+  margin-top: 50px;
+}
+
+.margin-bottom {
+  margin-bottom: 25px;
+}
+
+.alert-success {
+  margin-top: 25px;
+  line-height: 4px;
+}
+
+/****** Hash Div *******/
+#hash {
+  font-family: monospace;
+}
+
+/****** Auto Mine ******/
+#auto {
+  display: none;
+}
