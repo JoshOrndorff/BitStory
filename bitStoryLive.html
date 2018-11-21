@@ -1,73 +1,72 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bit Story Hasher</title>
-    <link rel="stylesheet" href="./bootstrap/dist/css/bootstrap.min.css" />
-    <script src="./bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="index.js"></script>
-    <script type="text/javascript" src="sha256.js"></script>
-    <link type="text/css" rel="stylesheet" href="index.css" />
-  </head>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bit Story Live</title>
+  <link rel="stylesheet" href="./bootstrap/dist/css/bootstrap.min.css" />
+  <script src="./bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="index.js"></script>
+  <script type="text/javascript" src="sha256.js"></script>
+  <link type="text/css" rel="stylesheet" href="css/hasher.css" />
+</head>
 
-  <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-              <a class="navbar-brand" href="#">BitStory</a>
-            </div>
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">BitStory</a>
           </div>
-    </nav>
+        </div>
+  </nav>
 
-    <div class="container margin-top" >
-        <div id="loginbox" class=" margin-top mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-            <div class="panel panel-info" >
-                <div class="panel-heading">
-                    <div class="panel-title center">BitStory</div>
-                </div>
+  <div class="container margin-top" >
+      <div id="loginbox" class=" margin-top mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+          <div class="panel panel-info" >
+              <div class="panel-heading">
+                  <div class="panel-title center">BitStory</div>
+              </div>
 
-                <div style="padding-top:30px" class="panel-body" >
-                    <div class="input-group margin-bottom">
-                        <span class="input-group-addon">Parent Hash </span>
-                        <input id="parent" type="text" class="form-control" placeholder="Enter Parent Hash">
-                    </div>
+              <div style="padding-top:30px" class="panel-body" >
+                  <div class="input-group margin-bottom">
+                      <span class="input-group-addon">Parent Hash </span>
+                      <input id="parent" type="text" class="form-control" placeholder="Enter Parent Hash">
+                  </div>
 
-                    <div class="input-group margin-bottom">
-                        <span class="input-group-addon">New Word </span>
-                        <input id="word" type="text" class="form-control" placeholder="BitStory">
-                    </div>
+                  <div class="input-group margin-bottom">
+                      <span class="input-group-addon">New Word </span>
+                      <input id="word" type="text" class="form-control" placeholder="BitStory">
+                  </div>
 
-                    <div class="input-group margin-bottom">
-                        <span class="input-group-addon">Nonce </span>
-                        <input id="nonce" type="number" class="form-control">
-                    </div>
+                  <div class="input-group margin-bottom">
+                      <span class="input-group-addon">Nonce </span>
+                      <input id="nonce" type="number" class="form-control">
+                  </div>
 
-                    <div class="btn-group btn-group-justified margin-bottom">
-                        <div id="decrement" class="btn btn-primary">Decrement</div>
-                        <div id="increment" class="btn btn-primary">Increment</div>
-                        <div id="random" class="btn btn-primary">Random</div>
-                    </div>
+                  <div class="btn-group btn-group-justified margin-bottom">
+                      <div id="decrement" class="btn btn-primary">Decrement</div>
+                      <div id="increment" class="btn btn-primary">Increment</div>
+                      <div id="random" class="btn btn-primary">Random</div>
+                  </div>
 
-                    <div id="auto" >
-                        <div class="input-group margin-bottom">
-                            <span class="input-group-addon ">Difficulty </span>
-                            <input type="number" id="difficulty" class="form-control" placeholder="Enter difficulty level"/>
-                        </div>
-                        <button id="auto-button" class="btn btn-primary btn-block">Auto Mine</button>
-                    </div>
+                  <div id="auto" >
+                      <div class="input-group margin-bottom">
+                          <span class="input-group-addon ">Difficulty </span>
+                          <input type="number" id="difficulty" class="form-control" placeholder="Enter difficulty level"/>
+                      </div>
+                      <button id="auto-button" class="btn btn-primary btn-block">Auto Mine</button>
+                  </div>
 
-                    <div class="alert alert-success">
-                        <div id="hash" style="text-align: center;" >&nbsp;</div>
-                    </div>
+                  <div class="alert alert-success">
+                      <div id="hash" style="text-align: center;" >&nbsp;</div>
+                  </div>
 
-                    <div class="btn-group btn-group-justified margin-bottom">
-                        <div id="publish" class="btn btn-primary">Next Block</div>
-                    </div>
-                </div>
-            </div>
-         </div>
-     </div>
-  </body>
-
+                  <div class="btn-group btn-group-justified margin-bottom">
+                      <div id="publish" class="btn btn-primary">Next Block</div>
+                  </div>
+              </div>
+          </div>
+       </div>
+   </div>
+</body>
 </html>

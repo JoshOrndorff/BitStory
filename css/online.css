@@ -1,0 +1,13 @@
+/****** Split window in half *******/
+#main {
+  display: flex;
+}
+
+#hasher {
+  flex: 1;
+}
+
+#graph {
+  flex: 1;
+  padding-top: 5em; /* hack to not be hidden behind header */
+}
